@@ -1,7 +1,7 @@
 # Autocrackeo
 Programa en python que automatiza el uso del hashcat para crackear contraseñas.
 
-![image](docs/robot1.JPG)
+![image](docs/robot1.jpg)
 
 Está diseñado específicamente para situaciones en las que se dispone de recursos limitados y no es posible afrontar ataques de fuerza bruta a gran escala. En estos casos, resulta útil contar con un amplio conjunto de herramientas, como diccionarios, máscaras y reglas, que maximicen el resultado de hashes crackeados en el menor tiempo posible.
 
@@ -199,7 +199,20 @@ El proyecto está dividido por directorios de distintos recursos. Aunque en ning
 	* changelog.md: aquí se irán indicando los cambios realizados y las nuevas ideas por desarrollar
 	* Tutorial de crackeo (para hashcat).md: aquí he reunido los conceptos y ejemplos del hashcat que me han sido de utilidad para realizar este proyecto.
 	* Archivo de hashes y diccionario para pruebas.
+## Licencia
 
-## Autora
+Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
+
+This work is licensed under a
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
+
+[![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
+
+[cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
+[cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
+[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
+## 
+
+## Autores
 * **Eneritz Azqueta** → Auditora en **SIA**
 * **Dimas Pastor** → Auditor en **Cybertix**
