@@ -1,0 +1,49 @@
+{
+	"files": {
+		"wordlists_files": [
+			"custom.txt",						
+			"kaonashi14M.txt",
+			"cyclone_hk.txt",			
+			"hashkiller-dict.txt"
+		],
+		"rules_files": [
+			"d3ad0ne.rule",
+			"rockyou-30000.rule",
+			"kamaji34K.rule",			
+			"OneRuleToRuleThemStill.rule",
+			"pantagrule.private.v5.popular.rule",
+			"pantagrule.private.v5.random.rule",
+			"pantagrule.private.v5.hybrid.rule",
+			"pantagrule.hashorg.v6.popular.rule",
+			"pantagrule.hashorg.v6.random.rule",
+			"pantagrule.hashorg.v6.hybrid.rule"			
+		],
+		"masks_files": [
+			"kaonashi.hcmask"
+		]
+	},
+	"attacks" : {		
+		"straight_with_rules_files": [
+			{"wordlists": [], "rules": [0]},
+			{"wordlists": [], "rules": [1]},
+			{"wordlists": [], "rules": [2]},
+			{"wordlists": [], "rules": [3]},
+			{"wordlists": [], "rules": [4]},
+			{"wordlists": [], "rules": [5]},
+			{"wordlists": [], "rules": [6]},
+			{"wordlists": [], "rules": [7]},
+			{"wordlists": [], "rules": [8]},
+			{"wordlists": [], "rules": [9]}
+
+		],
+		"straight_with_combined_rules_files": [
+		],
+		"brute_force_with_masks_files": [
+			{"masks": [0], "increment_enable": 0, "increment_min": 0, "increment_max": 0}
+		]
+	}
+}
+
+
+
+

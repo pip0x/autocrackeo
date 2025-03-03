@@ -1,0 +1,8 @@
+{
+	"attacks_files": [
+		"ES_high_probability_only_wordlists.json",
+		"ES_high_probability_tiny_rules.json",
+        "ES_high_probability_only_haku34K.rule.json",
+		"ES_high_probability_medium_big_rules.json"
+	]
+}

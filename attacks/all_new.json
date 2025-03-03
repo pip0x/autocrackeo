@@ -1,0 +1,21 @@
+{
+	"attacks_files": [
+		"quick_test.json",
+		"ANY_high_probability_only_wordlists.json",
+		"ES_high_probability_tiny_rules.json",		
+		"ES_high_probability_only_haku34K.rule.json",
+		"fast.json",
+		"basic.json",
+		"some_wordlists_and_rules.json",
+		"all_custom.json",
+		"all_hashcat_dir_rules.json",
+		"all_custom_insane.json",
+		"corporate_masks.json",
+		"ES_high_probability_medium_big_rules.json.json",		
+		"ANY_high_probability_tiny_rules.json",		
+		"ANY_high_probability_only_haku34K.rule.json",
+		"ANY_high_probability_medium_big_rules.json.json",				
+		"full.json",
+		"brute_force_forever.json"
+	]
+}

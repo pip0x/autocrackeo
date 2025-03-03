@@ -1,0 +1,44 @@
+{
+	"files": {
+		"wordlists_files": [
+			"custom.txt",			
+			"rockyou-65.txt",
+			"ignis-10K.txt",
+			"rockyou-60.txt",
+			"10_million_password_list_top_10000.txt",
+			"hashmob.net.small.found.txt",
+			"hk_hlm_founds.txt",
+			"ignis-10M.txt",
+			"piotrcki-wordlist-top10m.txt",			
+			"hashmob.net.large.found.txt",
+			"kaonashi14M.txt",
+			"cyclone_hk.txt",			
+			"hashkiller-dict.txt"
+		],
+		"rules_files": [
+			"top10_2023.rule",
+			"yubaba64.rule",
+			"hob064.rule",
+			"best66.rule",
+			"T0XlC_3_rule.rule",
+			"T0XlC.rule"
+		]
+		
+	},
+	"attacks" : {		
+		"straight_with_rules_files": [
+			{"wordlists": [0], "rules": []},
+			{"wordlists": [1], "rules": []},
+			{"wordlists": [2], "rules": []},
+			{"wordlists": [3], "rules": [0]},
+			{"wordlists": [3], "rules": [1]},
+			{"wordlists": [3], "rules": [2]},
+			{"wordlists": [3], "rules": [3]},
+			{"wordlists": [3], "rules": [4]}
+		]
+	}
+}
+
+
+
+
