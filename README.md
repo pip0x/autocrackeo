@@ -1,7 +1,7 @@
 # Autocrackeo
 Programa en python que automatiza el uso del hashcat para crackear contraseñas.
 
-![image](docs/robot1.JPG)
+![image](docs/robot1.jpg)
 
 Está diseñado específicamente para situaciones en las que se dispone de recursos limitados y no es posible afrontar ataques de fuerza bruta a gran escala. En estos casos, resulta útil contar con un amplio conjunto de herramientas, como diccionarios, máscaras y reglas, que maximicen el resultado de hashes crackeados en el menor tiempo posible.
 
