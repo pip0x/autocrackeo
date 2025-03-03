@@ -8,7 +8,7 @@
 		"rules_files": [
 			"basic.rule",
 			"hob064.rule",
-			"best64.rule"
+			"best66.rule"
 		],
 		"masks_files": [
 			"basic_hybrid.hcmask",

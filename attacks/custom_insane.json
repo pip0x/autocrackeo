@@ -5,15 +5,25 @@
 			"super.txt"
 		],
 		"rules_files": [
-			"OneRuleToRuleThemAll.rule",
-			"T0XlC.rule",
-			"basic.rule",
-			"best64.rule",
-			"d3ad0ne.rule",
-			"fast.rule",
-			"full.rule",
 			"hob064.rule",
-			"toggles-lm-ntlm.rule"
+			"rockyou-30000.rule",
+			"T0XlC.rule",
+			"T0XlC_3_rule.rule",
+			"best66.rule",
+			"top10_2023.rule",
+			"d3ad0ne.rule",
+			"toggles-lm-ntlm.rule",
+			"OneRuleToRuleThemAll.rule",
+			"OneRuleToRuleThemStill.rule",
+			"haku34K.rule",
+			"kamaji34K.rule",
+			"yubaba64.rule",
+			"pantagrule.private.v5.hybrid.rule.gz",
+			"pantagrule.private.v5.popular.rule.gz",
+			"pantagrule.private.v5.random.rule.gz",
+			"pantagrule.hashorg.v6.hybrid.rule.gz",
+			"pantagrule.hashorg.v6.popular.rule.gz",
+			"pantagrule.hashorg.v6.random.rule.gz"
 		],
 		"masks_files": [
 			"basic_hybrid.hcmask",

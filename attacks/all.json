@@ -6,9 +6,10 @@
 		"kaonashi.json",
 		"full.json",
 		"some_wordlists_and_rules.json",
-		"all_custom.json",
-		"all_hashcat_dir_rules.json",
-		"all_custom_insane.json",
+		"custom_rules.json",
+		"hashcat_dir_rules.json",
+		"custom_big.json",
+		"custom_insane.json",
 		"corporate_masks.json",
 		"brute_force_forever.json"
 	]

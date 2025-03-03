@@ -9,7 +9,7 @@
 		],
 		"rules_files": [
 			"full.rule",
-			"best64.rule",
+			"best66.rule",
 			"hob064.rule",
 			"OneRuleToRuleThemAll.rule",
 			"T0XlC.rule"
