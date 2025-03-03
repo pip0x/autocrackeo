@@ -176,7 +176,7 @@ class Configuration(object):
 	@staticmethod
 	def getConfigFilesArray(attack_file):
 		if attack_file:
-			if attack_file == "all":
+			if attack_file.startswith("all"):
 				attack_file_list = Configuration.parseConfigFilesList(attack_file + ".json")			
 			else:
 				attack_file_list = [attack_file + ".json"]

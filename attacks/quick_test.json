@@ -1,8 +1,8 @@
 {
 	"files": {
 		"wordlists_files": [
-			"cracked.txt",
 			"custom.txt",
+			"cracked.txt",			
 			"super.txt"
 		],
 		"rules_files": [
