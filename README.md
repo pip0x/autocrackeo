@@ -1,9 +1,13 @@
 # Autocrackeo
-Programa en python que automatiza el uso del hashcat para crackear contraseñas
+Programa en python que automatiza el uso del hashcat para crackear contraseñas.
 
-Específicamente pensado para el caso de no tener excesivos recursos y no poder afrontar grandes ataques de fuerza bruta. En este caso es interesante tener a mano un amplio conjunto de recursos como diccionarios, máscaras y reglas que maximicen el resultado de hashes crackeados en el menor tiempo posible.
+![image](docs/robot1.JPG)
 
-La idea es tener varios archivos como fast.json, basic.json, full.json, etc. con ataques de hashcat predefinidos que se ajusten a la velocidad/eficiencia que se requiera en cada momento. Al ejecutar el autocrackeo especificando uno de estos archivos, el programa ejecutará secuencialmente (sin necesidad de supervisión) los ataques de hashcat con los diccionarios, reglas y máscaras definidos en él.
+Está diseñado específicamente para situaciones en las que se dispone de recursos limitados y no es posible afrontar ataques de fuerza bruta a gran escala. En estos casos, resulta útil contar con un amplio conjunto de herramientas, como diccionarios, máscaras y reglas, que maximicen el resultado de hashes crackeados en el menor tiempo posible.
+
+La idea es contar con varios archivos, como fast.json, basic.json o full.json, que contengan ataques predefinidos de Hashcat adaptados a distintos niveles de velocidad y eficiencia. Al ejecutar el autocrackeo con uno de estos archivos, el programa lanzará automáticamente los ataques de Hashcat en secuencia, aplicando los diccionarios, reglas y máscaras definidos, sin necesidad de supervisión.
+
+
 
 Para ejecutar un archivo de ataques: (ejemplo para lanzar fast.json)
 > python3 autocrackeo.py -m 1000 -i docs\test_files\ntlm.hash  -w docs\test_files\custom.dic -o docs\test_files\results --feedback -a fast --verbose
@@ -35,9 +39,14 @@ pip3 install -r requirements.txt
 ```
 
 Descargar recursos externos semi-automáticamente: (en proceso de mejora)
-* Ejecutar el script de configuración donde están los enlaces a recursos externos que son muy interesantes (diccionarios, reglas, máscaras...)
+Ejecutar el script de configuración donde están los enlaces a recursos externos(diccionarios, reglas, máscaras...)
+* Windows
 ```
-python3 setup.py
+python3 windows_setup.py
+```
+* Linux
+```
+python3 linux_setup.py
 ```
 
 ## Manual de usuario
@@ -122,6 +131,7 @@ Diccionarios: wordlists/
 * super.dic: recolección de palabras genéricas, lugares, colores, nombres, fechas... susceptibles de aparecer en contraseñas
 * añadir más diccionarios:
 	* rockyou: http://downloads.skullsecurity.org/passwords/rockyou.txt.bz2
+	* WeekPass: https://weakpass.com/wordlists
 	* hashkiller: https://hashkiller.co.uk/downloads.aspx
 	* colecciones de usuarios, contraseñas, urls, patrones...: https://github.com/danielmiessler/SecLists
 	* palabras típicas: https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english.txt
@@ -129,13 +139,18 @@ Diccionarios: wordlists/
 Reglas: rules/
 * fast.rule, basic.rule, full.rule: creadas específicamente para esta herramienta según en nivel de complejidad deseado
 * añadir más reglas:
-	* best64.rule, d3ad0ne.rule y T0XIC.rule: https://github.com/hashcat/hashcat/tree/master/rules
+	* best66.rule, d3ad0ne.rule y T0XIC.rule: https://github.com/hashcat/hashcat/tree/master/rules
 	* hob064.rule: https://github.com/praetorian-inc/Hob0Rules
 	* OneRuleToRuleThemAll.rule: https://github.com/NotSoSecure/password_cracking_rules
 	* toggles-lm-ntlm.rule: https://github.com/trustedsec/hate_crack/blob/master/rules/toggles-lm-ntlm.rule
-	* haku34K.rule: https://raw.githubusercontent.com/kaonashi-passwords/Kaonashi/master/rules/haku34K.rule,
-	* kamaji34K.rule: https://raw.githubusercontent.com/kaonashi-passwords/Kaonashi/master/rules/kamaji34K.rule,
+	* haku34K.rule: https://raw.githubusercontent.com/kaonashi-passwords/Kaonashi/master/rules/haku34K.rule
+	* kamaji34K.rule: https://raw.githubusercontent.com/kaonashi-passwords/Kaonashi/master/rules/kamaji34K.rule
 	* yubaba64.rule: https://raw.githubusercontent.com/kaonashi-passwords/Kaonashi/master/rules/yubaba64.rule
+	* T0XlC_3_rule: https://raw.githubusercontent.com/hashcat/hashcat/master/rules/T0XlC_3_rule.rule
+	* top10_2023: https://raw.githubusercontent.com/hashcat/hashcat/master/rules/top10_2023.rule
+	* pantagrule.private.v5: https://github.com/rarecoil/pantagrule/raw/refs/heads/master/rules/private.v5/
+	* pantagrule.hashorg.v6: https://github.com/rarecoil/pantagrule/raw/refs/heads/master/rules/hashesorg.v6/
+	* OneRuleToRuleThemStill: https://raw.githubusercontent.com/stealthsploit/OneRuleToRuleThemStill/refs/heads/main/OneRuleToRuleThemStill.rule
 		
 
 Máscaras: masks/
@@ -153,6 +168,17 @@ Configuraciones de ataques automáticos:
 	* fast.json: configuración para una ejecución rápida con pocos intentos.
 	* basic.json: configuración para una ejecución básica, que en minutos/horas sea capaz de probar las contraseñas/reglas/máscaras más frecuentes.
 	* full.json: configuración para una ejecución más completa, puede tardar semanas, meses, años incluso. Además de probar las opciones básicas, añadirá reglas combinadas con diccionarios grandes, máscaras que abarquen más caracteres de fuerza bruta, etc.
+* all_ES_high_probability.json: ataques predefinidos cuando el objetivo son contraseñas en castellano
+	* ES_high_probability_only_wordlists.json: prueba una vez los diccionarios kaonashi14M, cyclone_hk y hashkiller-dict.
+	* ES_high_probability_tiny_rules.json: prueba una vez los diccionarios anteriores junto con las reglas de menos de 100KB.
+	* ES_high_probability_only_haku34K.rule.json: prueba una vez los diccionarios anteriores junto con las reglas haku34K. Gran impacto, pero requiere tiempo.
+	* ES_high_probability_medium_big_rules.rule.json: prueba una vez los diccionarios anteriores junto con las reglas de mas de 100KB.
+* all_ANY_high_probability.json: ataques predefinidos cuando el objetivo son contraseñas en castellano
+	* ANY_high_probability_only_wordlists.json: prueba una vez los diccionarios rockyou-65.txt, kaonashi14M.txt, ignis-10K.txt, rockyou-60.txt, 10_million_password_list_top_10000.txt, hashmob.net.small.found.txt, hk_hlm_founds.txt, ignis-10M.txt, piotrcki-wordlist-top10m.txt, hashmob.net.large.found.txt, cyclone_hk.txt y hashkiller-dict.txt.
+	* ANY_high_probability_tiny_rules.json: prueba una vez los diccionarios anteriores junto con las reglas de menos de 100KB.
+	* ANY_high_probability_only_haku34K.rule.json: prueba una vez los diccionarios anteriores junto con las reglas haku34K. Gran impacto, pero requiere tiempo.
+	* ANY_high_probability_medium_big_rules.rule.json: prueba una vez los diccionarios anteriores junto con las reglas de mas de 100KB.
+* all_new.json: Metodo reorganizado de cracking adaptando de base el antiguo denominado como all.json.
 * all_wordlists_all_rules.json: todas las combinaciones de cada diccionario con cada regla
 * one_word_per_hash.json: generar un diccionario sólo con los nombres de usuario y probar únicamente usuario=contraseña
 	* puede resultar útil teniendo hashes de formato de hashes complejos (que tardan mucho en cada prueba)
@@ -175,4 +201,5 @@ El proyecto está dividido por directorios de distintos recursos. Aunque en ning
 	* Archivo de hashes y diccionario para pruebas.
 
 ## Autora
-* **Eneritz Azqueta** → Auditora en **S21sec**
+* **Eneritz Azqueta** → Auditora en **SIA**
+* **Dimas Pastor** → Auditor en **Cybertix**
