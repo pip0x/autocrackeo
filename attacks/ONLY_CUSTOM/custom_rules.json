@@ -1,0 +1,46 @@
+{
+	"files": {
+		"wordlists_files": [
+			"custom.txt"
+		],
+		"rules_files": [
+			"hob064.rule",
+			"rockyou-30000.rule",
+			"T0XlC.rule",
+			"T0XlC_3_rule.rule",
+			"best66.rule",
+			"nsa64.rule",
+			"numbers.rule",
+			"numbers100.rule",
+			"cyclone_250.rule",
+			"online.rule",
+			"top_1500.rule",
+			"years_1900_2025.rule",
+			"top10_2023.rule",
+			"d3ad0ne.rule",
+			"toggles-lm-ntlm.rule",
+			"OneRuleToRuleThemAll.rule",
+			"OneRuleToRuleThemStill.rule",
+			"haku34K.rule",
+			"kamaji34K.rule",
+			"yubaba64.rule",			
+			"buka_400k.rule",
+			"pantagrule.private.v5.hybrid.rule",
+			"pantagrule.private.v5.popular.rule",
+			"pantagrule.private.v5.random.rule",
+			"SuperUnicorn.rule",
+			"Fordyv3-1Mil.rule",
+			"pantagrule.hashorg.v6.hybrid.rule",
+			"pantagrule.hashorg.v6.popular.rule",
+			"pantagrule.hashorg.v6.random.rule"
+		]
+	},
+	"attacks" : {
+		"straight": [
+			{"wordlists": [0]}
+		],
+		"straight_with_rules_files": [
+			{"wordlists": [0], "rules": []}
+		]
+	}
+}

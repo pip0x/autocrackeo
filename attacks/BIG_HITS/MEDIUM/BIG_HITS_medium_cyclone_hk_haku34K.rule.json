@@ -1,0 +1,21 @@
+{
+	"files": {
+		"wordlists_files": [			
+			"cyclone_hk.txt"
+
+		],
+		"rules_files": [
+			"haku34K.rule"
+			
+		]
+	},
+	"attacks" : {
+		"straight_with_rules_files": [
+			{"wordlists": [], "rules": [0]}
+		]
+	}
+}
+
+
+
+

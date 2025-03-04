@@ -1,0 +1,27 @@
+{
+	"files": {
+		"wordlists_files": [	
+			"rockyou-65.txt",
+			"kaonashi14M.txt",			
+			"ignis-10K.txt",
+			"rockyou-60.txt",
+			"10_million_password_list_top_10000.txt",
+			"hashmob.net.small.found.txt",
+			"hk_hlm_founds.txt",
+			"ignis-10M.txt",
+			"piotrcki-wordlist-top10m.txt",			
+			"hashmob.net.large.found.txt",
+			"cyclone_hk.txt",			
+			"hashkiller-dict.txt"
+		]
+	},
+	"attacks" : {
+		"straight": [
+			{"wordlists": []}
+		]
+	}
+}
+
+
+
+

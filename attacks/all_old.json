@@ -1,0 +1,16 @@
+{
+	"attacks_files": [
+		"quick_test.json",
+		"_old\\fast.json",
+		"_old\\basic.json",
+		"_old\\kaonashi.json",
+		"_old\\full.json",
+		"_old\\some_wordlists_and_rules.json",
+		"_old\\custom_rules.json",
+		"_old\\hashcat_dir_rules.json",
+		"_old\\custom_big.json",
+		"_old\\custom_insane.json",
+		"_old\\corporate_masks.json",
+		"_old\\brute_force_forever.json"
+	]
+}

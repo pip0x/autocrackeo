@@ -66,7 +66,7 @@ Se recomienda crear inicialmente la siguiente estructura de carpetas para cada p
 
 Tras crear la estructura de carpetas se deberá abrir un ventana de comandos CMD o Powershell y dirigirse a la carpeta descargada anterriormente de **hashcat** donde se encuentra *hashcat.exe*. Una vez se encuentra en ese directorio, es posible ejecutar diferentes ataques de autocrackeo:
 
-```
+```console
 cd %PATH_HASHCAT%
 
 python3 %PATH_AUTOCRACKEO%/autocrackeo.py -a quick_test -m 1000 -i %PATH_PROYECTO%\hash\ntlm.hash -w %PATH_PROYECTO%\custom.txt -o %PATH_PROYECTO%\results --feedback --verbose -e="--username"
@@ -74,12 +74,12 @@ python3 %PATH_AUTOCRACKEO%/autocrackeo.py -a quick_test -m 1000 -i %PATH_PROYECT
 ```
 
 **TIP-1**: En caso de que lanzes esta herramienta desde un ordenador portatil o con GPU limitada, puede que sea necesario añadir el valor --force al parametro -e.
-```
+```console
 python3 %PATH_AUTOCRACKEO%/autocrackeo.py -a quick_test -m 1000 -i %PATH_PROYECTO%\hash\ntlm.hash -w %PATH_PROYECTO%\custom.txt -o %PATH_PROYECTO%\results --feedback --verbose -e="--force --username"
 ```
 
 **TIP-2**: Depende el formato en el que se almacene el hash en el archivo (en este caso ntlm.txt), puede que nosea necesario añadir el valor --username al parametro -e.
-```
+```console
 python3 %PATH_AUTOCRACKEO%/autocrackeo.py -a quick_test -m 1000 -i %PATH_PROYECTO%\hash\ntlm.hash -w %PATH_PROYECTO%\custom.txt -o %PATH_PROYECTO%\results --feedback --verbose -e="--force"
 ```
 

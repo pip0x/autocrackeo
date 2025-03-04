@@ -1,0 +1,26 @@
+{
+	"files": {
+		"wordlists_files": [
+			"custom.txt",			
+			"kaonashi14M.txt",
+			"cyclone_hk.txt",	
+			"hashkiller-dict.txt"
+		],
+		"rules_files": [
+			"haku34K.rule"
+			
+		],
+		"masks_files": [
+			"kaonashi.hcmask"
+		]
+	},
+	"attacks" : {
+		"straight_with_rules_files": [
+			{"wordlists": [], "rules": [0]}
+		]
+	}
+}
+
+
+
+

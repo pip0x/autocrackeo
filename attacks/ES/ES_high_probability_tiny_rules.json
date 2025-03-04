@@ -1,0 +1,51 @@
+{
+	"files": {
+		"wordlists_files": [
+			"custom.txt",			
+			"kaonashi14M.txt",
+			"cyclone_hk.txt",	
+			"hashkiller-dict.txt"
+		],
+		"rules_files": [
+			"top10_2023.rule",
+			"yubaba64.rule",
+			"hob064.rule",
+			"best66.rule",
+			"nsa64.rule",
+			"numbers.rule",
+			"numbers100.rule",
+			"top_1500.rule",
+			"years_1900_2025.rule",
+			"cyclone_250.rule",
+			"T0XlC_3_rule.rule",
+			"online.rule",
+			"top_500.rule",
+			"T0XlC.rule"
+		]
+		
+	},
+	"attacks" : {		
+		"straight_with_rules_files": [
+			{"wordlists": [0], "rules": []},
+			{"wordlists": [1], "rules": []},
+			{"wordlists": [2], "rules": []},
+			{"wordlists": [3], "rules": [0]},
+			{"wordlists": [3], "rules": [1]},
+			{"wordlists": [3], "rules": [2]},
+			{"wordlists": [3], "rules": [3]},
+			{"wordlists": [3], "rules": [4]},
+			{"wordlists": [3], "rules": [5]},
+			{"wordlists": [3], "rules": [6]},
+			{"wordlists": [3], "rules": [7]},
+			{"wordlists": [3], "rules": [8]},
+			{"wordlists": [3], "rules": [9]},
+			{"wordlists": [3], "rules": [10]},
+			{"wordlists": [3], "rules": [11]},
+			{"wordlists": [3], "rules": [12]}
+		]
+	}
+}
+
+
+
+

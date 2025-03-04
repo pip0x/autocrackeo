@@ -1,0 +1,21 @@
+{
+	"files": {
+		"wordlists_files": [			
+			"kaonashi14M.txt"
+
+		],
+		"rules_files": [
+			"Fordyv3-1Mil.rule"
+			
+		]
+	},
+	"attacks" : {
+		"straight_with_rules_files": [
+			{"wordlists": [], "rules": [0]}
+		]
+	}
+}
+
+
+
+

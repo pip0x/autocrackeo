@@ -1,0 +1,16 @@
+{
+	"files": {
+		"wordlists_files": [
+			"custom.txt"
+		],
+		"rules_files": [
+		],
+		"masks_files": [
+		]
+	},
+	"attacks" : {
+		"one_word_per_hash":[
+			{"wordlists": [0]}
+		]
+	}
+}

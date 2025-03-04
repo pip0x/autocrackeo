@@ -110,7 +110,16 @@ rules = {
     "top_500.rule": "https://raw.githubusercontent.com/zzzteph/weakpass/refs/heads/main/rules/top_500.rule",
     "top_750.rule": "https://raw.githubusercontent.com/zzzteph/weakpass/refs/heads/main/rules/top_750.rule",
     "years_2025.rule": "https://raw.githubusercontent.com/zzzteph/weakpass/refs/heads/main/rules/years.rule",
-    "years_1900_2025.rule": "https://raw.githubusercontent.com/zzzteph/weakpass/refs/heads/main/rules/years_1900_2025.rule",    
+    "years_1900_2025.rule": "https://raw.githubusercontent.com/zzzteph/weakpass/refs/heads/main/rules/years_1900_2025.rule",
+
+    "cyclone_250.rule": "https://raw.githubusercontent.com/cyclone-github/rules/refs/heads/master/cyclone_250.rule",
+    "Fordyv3-1Mil.rule": " https://raw.githubusercontent.com/caeksec/rules/refs/heads/main/fordy/Fordyv3-1Mil.rule",
+    "SuperUnicorn.rule": "https://raw.githubusercontent.com/Unic0rn28/hashcat-rules/refs/heads/main/unicorn%20rules/SuperUnicorn.rule",
+    
+
+
+   
+    
 	#-----------
     #pantagrule
     #v5
