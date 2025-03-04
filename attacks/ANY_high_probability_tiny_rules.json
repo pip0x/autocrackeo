@@ -20,6 +20,11 @@
 			"yubaba64.rule",
 			"hob064.rule",
 			"best66.rule",
+			"nsa64.rule",
+			"numbers.rule",
+			"numbers100.rule",
+			"top_1500.rule",
+			"years_1900_2025.rule",
 			"T0XlC_3_rule.rule",
 			"T0XlC.rule"
 		]
@@ -30,11 +35,16 @@
 			{"wordlists": [0], "rules": []},
 			{"wordlists": [1], "rules": []},
 			{"wordlists": [2], "rules": []},
-			{"wordlists": [3], "rules": [0]},
-			{"wordlists": [3], "rules": [1]},
-			{"wordlists": [3], "rules": [2]},
-			{"wordlists": [3], "rules": [3]},
-			{"wordlists": [3], "rules": [4]}
+			{"wordlists": [3], "rules": []},
+			{"wordlists": [4], "rules": []},
+			{"wordlists": [5], "rules": []},
+			{"wordlists": [6], "rules": []},
+			{"wordlists": [7], "rules": []},
+			{"wordlists": [8], "rules": []},
+			{"wordlists": [9], "rules": []},
+			{"wordlists": [10], "rules": []},
+			{"wordlists": [11], "rules": []},
+			{"wordlists": [12], "rules": []},
 		]
 	}
 }

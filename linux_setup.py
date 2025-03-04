@@ -86,12 +86,6 @@ rules = {
 	"hob064.rule": "https://raw.githubusercontent.com/praetorian-code/Hob0Rules/master/hob064.rule",
 	"rockyou-30000.rule": "https://raw.githubusercontent.com/hashcat/hashcat/master/rules/rockyou-30000.rule",
 	"T0XlC.rule": "https://raw.githubusercontent.com/hashcat/hashcat/master/rules/T0XlC.rule",
-    #new
-    #-----------
-    "T0XlC_3_rule.rule": "https://raw.githubusercontent.com/hashcat/hashcat/master/rules/T0XlC_3_rule.rule",
-	"best66.rule": "https://raw.githubusercontent.com/hashcat/hashcat/master/rules/best66.rule",
-    "top10_2023.rule": "https://raw.githubusercontent.com/hashcat/hashcat/master/rules/top10_2023.rule",
-	#-----------
     "d3ad0ne.rule": "https://raw.githubusercontent.com/hashcat/hashcat/master/rules/d3ad0ne.rule",
 	"toggles-lm-ntlm.rule": "https://raw.githubusercontent.com/trustedsec/hate_crack/master/rules/toggles-lm-ntlm.rule",
 	"OneRuleToRuleThemAll.rule": "https://raw.githubusercontent.com/NotSoSecure/password_cracking_rules/master/OneRuleToRuleThemAll.rule",
@@ -99,6 +93,25 @@ rules = {
 	"haku34K.rule": "https://raw.githubusercontent.com/kaonashi-passwords/Kaonashi/master/rules/haku34K.rule",
 	"kamaji34K.rule": "https://raw.githubusercontent.com/kaonashi-passwords/Kaonashi/master/rules/kamaji34K.rule",
 	"yubaba64.rule": "https://raw.githubusercontent.com/kaonashi-passwords/Kaonashi/master/rules/yubaba64.rule",
+    #new
+    #-----------
+    "T0XlC_3_rule.rule": "https://raw.githubusercontent.com/hashcat/hashcat/master/rules/T0XlC_3_rule.rule",
+	"best66.rule": "https://raw.githubusercontent.com/hashcat/hashcat/master/rules/best66.rule",
+    "top10_2023.rule": "https://raw.githubusercontent.com/hashcat/hashcat/master/rules/top10_2023.rule",
+
+    "nsa64.rule": "https://raw.githubusercontent.com/zzzteph/weakpass/refs/heads/main/rules/nsa64.rule",
+    "numbers.rule": "https://raw.githubusercontent.com/zzzteph/weakpass/refs/heads/main/rules/numbers.rule",
+    "numbers100.rule": "https://raw.githubusercontent.com/zzzteph/weakpass/refs/heads/main/rules/numbers100.rule",
+    "online.rule": "https://raw.githubusercontent.com/zzzteph/weakpass/refs/heads/main/rules/online.rule",
+    "symbols.rule": "https://raw.githubusercontent.com/zzzteph/weakpass/refs/heads/main/rules/symbols.rule",
+    "top_1500.rule": "https://raw.githubusercontent.com/zzzteph/weakpass/refs/heads/main/rules/top_1500.rule",
+    "top_250.rule": "https://raw.githubusercontent.com/zzzteph/weakpass/refs/heads/main/rules/top_250.rule",
+    "top_3000.rule": "https://raw.githubusercontent.com/zzzteph/weakpass/refs/heads/main/rules/top_3000.rule",
+    "top_500.rule": "https://raw.githubusercontent.com/zzzteph/weakpass/refs/heads/main/rules/top_500.rule",
+    "top_750.rule": "https://raw.githubusercontent.com/zzzteph/weakpass/refs/heads/main/rules/top_750.rule",
+    "years_2025.rule": "https://raw.githubusercontent.com/zzzteph/weakpass/refs/heads/main/rules/years.rule",
+    "years_1900_2025.rule": "https://raw.githubusercontent.com/zzzteph/weakpass/refs/heads/main/rules/years_1900_2025.rule",    
+	#-----------
     #pantagrule
     #v5
     "pantagrule.private.v5.hybrid.rule.gz": "https://github.com/rarecoil/pantagrule/raw/refs/heads/master/rules/private.v5/pantagrule.private.v5.hybrid.rule.gz",

@@ -11,6 +11,11 @@
 			"yubaba64.rule",
 			"hob064.rule",
 			"best66.rule",
+			"nsa64.rule",
+			"numbers.rule",
+			"numbers100.rule",
+			"top_1500.rule",
+			"years_1900_2025.rule",
 			"T0XlC_3_rule.rule",
 			"T0XlC.rule"
 		]
@@ -25,7 +30,12 @@
 			{"wordlists": [3], "rules": [1]},
 			{"wordlists": [3], "rules": [2]},
 			{"wordlists": [3], "rules": [3]},
-			{"wordlists": [3], "rules": [4]}
+			{"wordlists": [3], "rules": [4]},
+			{"wordlists": [3], "rules": [5]},
+			{"wordlists": [3], "rules": [6]},
+			{"wordlists": [3], "rules": [7]},
+			{"wordlists": [3], "rules": [8]},
+			{"wordlists": [3], "rules": [9]}
 		]
 	}
 }
