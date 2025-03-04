@@ -1,0 +1,34 @@
+{
+	"files": {
+		"wordlists_files": [			
+			"kaonashi14M.txt"
+
+		],
+		"rules_files": [
+			"top10_2023.rule",
+			"yubaba64.rule",
+			"hob064.rule",
+			"best66.rule",
+			"nsa64.rule",
+			"numbers.rule",
+			"numbers100.rule",
+			"top_1500.rule",
+			"years_1900_2025.rule",
+			"cyclone_250.rule",
+			"T0XlC_3_rule.rule",
+			"online.rule",
+			"top_500.rule",
+			"T0XlC.rule"
+		]
+		
+	},
+	"attacks" : {		
+		"straight_with_rules_files": [
+			{"wordlists": [], "rules": []}
+		]
+	}
+}
+
+
+
+

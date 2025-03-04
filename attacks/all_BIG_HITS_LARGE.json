@@ -1,0 +1,11 @@
+{
+	"attacks_files": [
+		"BIG_HITS\\LARGE\\BIG_HITS_large_cyclone_hk_haku34K.rule.json",
+		"BIG_HITS\\LARGE\\BIG_HITS_large_kaonashi14M_SuperUnicorn.rule.json",
+		"BIG_HITS\\LARGE\\BIG_HITS_large_kaonashi14M_Fordyv3-1Mil.rule.json",
+		"BIG_HITS\\LARGE\\BIG_HITS_large_cyclone_hk_haku34K.rule.json",
+		"BIG_HITS\\LARGE\\BIG_HITS_large_cyclone_hk_Fordyv3-SuperUnicorn.rule.json",
+		"BIG_HITS\\LARGE\\BIG_HITS_large_cyclone_hk_Fordyv3-1Mil.rule.json",		
+		"ONLY_CUSTOM\\custom_rules.json"
+	]
+}

@@ -1,0 +1,21 @@
+{
+	"files": {
+		"wordlists_files": [			
+			"cyclone_hk.txt"
+
+		],
+		"rules_files": [
+			"SuperUnicorn.rule"
+			
+		]
+	},
+	"attacks" : {
+		"straight_with_rules_files": [
+			{"wordlists": [], "rules": [0]}
+		]
+	}
+}
+
+
+
+

@@ -1,0 +1,8 @@
+{
+	"attacks_files": [
+		"BIG_HITS\\MEDIUN\\BIG_HITS_medium_kaonashi14M_buka_400k.rule.json",
+		"BIG_HITS\\MEDIUN\\BIG_HITS_medium_kaonashi14M_pantagrule.private.v5.popular.rule.json",
+		"BIG_HITS\\MEDIUM\\BIG_HITS_medium_cyclone_hk_haku34K.rule.json",		
+		"ONLY_CUSTOM\\custom_rules.json"
+	]
+}
