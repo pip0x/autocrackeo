@@ -2,9 +2,9 @@
 
 En esta carpeta se almacenan y organizan los diferentes *ataques* predefinidos, que se definirán en el parámetro **-a** del comando.
 
-```
-Cuando se habla de ataques, se refiere a las diferentes combinaciones entre diccionarios, reglas y mascaras que se pueden realizar para crackear una contraseña.
-```
+
+**Cuando se habla de ataques, se refiere a las diferentes combinaciones entre diccionarios, reglas y mascaras que se pueden realizar para crackear una contraseña.**
+
 
 La estructura de carpetas creada es la siguiente:
 * **_old**: Serie de ataques antiguos.
