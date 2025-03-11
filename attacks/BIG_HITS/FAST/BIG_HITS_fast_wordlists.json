@@ -1,0 +1,18 @@
+{
+	"files": {
+		"wordlists_files": [
+			"custom.txt",
+			"kaonashi14M.txt",
+			"cyclone_hk.txt"
+		],
+		"rules_files": [
+		],
+		"masks_files": [
+		]
+	},
+	"attacks" : {
+		"straight": [
+			{"wordlists": []}
+		]
+	}
+}

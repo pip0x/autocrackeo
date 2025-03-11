@@ -114,7 +114,7 @@ rules = {
 
     "cyclone_250.rule": "https://raw.githubusercontent.com/cyclone-github/rules/refs/heads/master/cyclone_250.rule",
     "Fordyv3-1Mil.rule": "https://raw.githubusercontent.com/caeksec/rules/refs/heads/main/fordy/Fordyv3-1Mil.rule",
-    "SuperUnicorn.rule": "https://raw.githubusercontent.com/Unic0rn28/hashcat-rules/refs/heads/main/unicorn rules/SuperUnicorn.rule",
+    "SuperUnicorn.rule": "https://raw.githubusercontent.com/Unic0rn28/hashcat-rules/refs/heads/main/unicorn%20rules/SuperUnicorn.rule",
     
 
 
@@ -137,6 +137,7 @@ masks = {
 	"kaonashi.hcmask": "https://raw.githubusercontent.com/kaonashi-passwords/Kaonashi/master/masks/kaonashi.hcmask",
 	#"2015-Top40-Time-Sort.hcmask": "https://blog.netspi.com/wp-content/uploads/2016/01/2015-Top40-Time-Sort.hcmask",
 	"pathwell.hcmask": "https://raw.githubusercontent.com/trustedsec/hate_crack/master/masks/pathwell.hcmask",
+    "kaonashi_masks_numbered.txt": "https://raw.githubusercontent.com/kaonashi-passwords/Kaonashi/refs/heads/master/masks/kaonashi_masks_numbered.txt",
 	"rockyou-1-60.hcmask": "https://raw.githubusercontent.com/hashcat/hashcat/master/masks/rockyou-1-60.hcmask"
 }
 

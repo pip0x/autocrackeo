@@ -1,5 +1,6 @@
 {
 	"attacks_files": [
+		"BIG_HITS\\FAST\\BIG_HITS_fast_wordlists.json",
 		"BIG_HITS\\FAST\\BIG_HITS_fast_kaonashi14M_cyclone_250.rule.json",
 		"BIG_HITS\\FAST\\BIG_HITS_fast_cyclone_hk_cyclone_250.rule.json",
 		"BIG_HITS\\FAST\\BIG_HITS_fast_kaonashi14M_haku34K.rule.json",
