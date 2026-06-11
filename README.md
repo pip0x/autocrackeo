@@ -249,4 +249,5 @@ This work is licensed under a
 
 ## Autores
 * **Eneritz Azqueta** → Auditora en **SIA**
-* **Dimas Pastor** → Auditor en **Cybertix**
+* **Dimas Pastor** → Auditor en **Tarlogic**
+* **Jon Tellechea** → Auditor en **Tarlogic**
