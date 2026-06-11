@@ -114,7 +114,7 @@ rules = {
 
     "cyclone_250.rule": "https://raw.githubusercontent.com/cyclone-github/rules/refs/heads/master/cyclone_250.rule",
     "Fordyv3-1Mil.rule": "https://raw.githubusercontent.com/caeksec/rules/refs/heads/main/fordy/Fordyv3-1Mil.rule",
-    "SuperUnicorn.rule": "https://raw.githubusercontent.com/Unic0rn28/hashcat-rules/refs/heads/main/unicorn%20rules/SuperUnicorn.rule",
+    "SuperUnicorn.rule": "https://raw.githubusercontent.com/caeksec/rules/refs/heads/main/unicorn/SuperUnicorn.rule",
     
 
 
