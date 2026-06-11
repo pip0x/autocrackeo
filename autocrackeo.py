@@ -15,7 +15,7 @@ try:
 	from src.color import Color
 	from src.configuration import Configuration
 	from src.attacks import Attacks
-	from src.hashcat import Hashcat
+	#from src.hashcat import Hashcat
 
 except Exception as e:
 	sys.exit(" [X] " + str(e))
@@ -45,6 +45,8 @@ def getArguments():
 	parser.add_argument("--feedback", action="store_true", dest="feedback", help="dump plaintext passwords from potfile (-o) to custom wordlist (-w)")
 	parser.add_argument("-v", "--verbose", action='store_true', dest="verbose", help="show more messages")
 	parser.add_argument("--version", action='version', version='%(prog)s 1.8 (25/04/2020)')
+
+	parser.add_argument("--benchmarking", action="store_true", dest="benchmarking", help="use hashcat_benchmarking module instead of hashcat")
 
 	# output directory, default current dir
 	parser.add_argument("-o", "--output-dir", type=str, dest="output_dir", default="", help="path to store the results (potfile.pot, cracked.txt, user_pwd.txt")
@@ -113,7 +115,14 @@ def main(color):
 
 				# load other scripts
 				conf = Configuration(hash_file, hash_type, attacks_file, extra_params, arguments.output_dir, arguments.wordlist_custom_file)
-				hashcat = Hashcat(conf.static_values, arguments.verbose, color)
+
+				if arguments.benchmarking:
+					from src.hashcat_benchmarking import Hashcat
+					hashcat = Hashcat(conf.static_values, arguments.verbose, color)
+				else:
+					from src.hashcat import Hashcat
+					hashcat = Hashcat(conf.static_values, arguments.verbose, color)
+
 				attacks = Attacks(hashcat)
 
 				
@@ -151,7 +160,7 @@ def main(color):
 								Color.showError("This attack name is not recognized!", False)
 
 							# dump plaintext passwords from potfile to custom wordlist
-							if arguments.feedback: hashcat.feedback(arguments.wordlist_custom_file)
+							#if arguments.feedback: hashcat.feedback(arguments.wordlist_custom_file)
 
 					except KeyboardInterrupt as ki:
 						"""

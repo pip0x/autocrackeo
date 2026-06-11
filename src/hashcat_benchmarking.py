@@ -1,10 +1,19 @@
 # -*- coding: utf-8 -*-
 try:
-	import sys, subprocess,os
+	import sys, subprocess, os, csv, time
+	from pathlib import Path
 	from src.color import Color
 	from datetime import datetime, timedelta
 except Exception as e:
 	sys.exit(e)
+
+# ------------------------------------------------------------------ #
+#  Benchmark CSV logging                                              #
+# ------------------------------------------------------------------ #
+ # <- cambia esta ruta
+CSV_HEADERS   = ["fecha", "tipo_ataque", "diccionario", "regla", "duracion_segundos", "duracion_formato", "hashes_totales", "hashes_crackeados", "porcentaje_crackeado"]
+
+
 
 class Hashcat(object):
 	"""
@@ -26,7 +35,15 @@ class Hashcat(object):
 		self.hash_type = "-m " + conf["hash_type"]
 		self.hash_file = conf["hash_file"]
 		self.pot_file = "--potfile-path " + conf["pot_file"]
-		self.pot_file_path = conf["pot_file"]
+		self.pot_file_path = conf["pot_file"]		
+		##ADDED NEW
+		
+		
+		self.benchmark_location = conf["benchmark_location"]
+		self.BENCHMARK_CSV = os.path.join(self.benchmark_location, "benchmark_results.csv")
+		
+		
+		
 		#self.out_file = "-o " + conf["out_file"]
 		self.out_file_format_pwd = "--outfile-format 2"# 2 pwd o 3 hash:pwd # si se añade --username será user:hash:pwd
 		self.out_file_format_hash = "--outfile-format 1"# only hash
@@ -57,14 +74,26 @@ class Hashcat(object):
 		"""
 		return f"{self.executable} {self.hash_type} \"{self.hash_file}\" {self.pot_file} {self.out_file_format_pwd} {self.resource_options} {self.extra_params} {self.quiet} "
 
-	def execute(self, cmd):
+	def set_potfile(self, path):
+		"""Set a unique potfile path for the current attack type."""
+		self.pot_file = "--potfile-path " + path
+		self.pot_file_path = path
+
+	def execute(self, cmd, _csv_attack=None, _csv_wordlist=None, _csv_rule=None):
 		"""
 		Execute a os command with given string
 		"""
 		if self.verbose: Color.showCmd(cmd) # show on screen
 		now = Color.timedelta_to_string(datetime.now())
 		self.color.logThis("[+] " + now + ", "  + cmd) # log on file
+		# Extract the actual potfile path from self.pot_file at execution time
+		# (some methods update self.pot_file directly without updating self.pot_file_path)
+		current_pot_path = self.pot_file.replace("--potfile-path ", "").strip()
+		start = time.time()
 		p = subprocess.call(cmd, shell=True)
+		elapsed = time.time() - start
+		if _csv_attack:
+			self._log_to_csv(_csv_attack, wordlist=_csv_wordlist, rule=_csv_rule, duration_seconds=elapsed, hash_file=self.hash_file, pot_file=current_pot_path)
 
 		'''
 		p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
@@ -80,9 +109,18 @@ class Hashcat(object):
 		Call hashcat's straight attack: -a 0
 		"""
 		attack_mode = f"{self.attack_mode}".format(mode=0)
+
+
+		#AÑADIDO (ELIMINAR)
+		#------------------------------------------------------------------------------------------------------------------------------------------------
+		final_pot_name="potfile_ONLY_WORDLIST_"+os.path.basename(wordlist)+".pot"
+		self.pot_file = "--potfile-path " + os.path.join(self.benchmark_location, final_pot_name)
+		#------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 		attack = "{attack_mode} \"{wordlist}\"".format(attack_mode=attack_mode, wordlist=wordlist)
 		cmd = self.getStaticPart() + attack
-		self.execute(cmd)
+		self.execute(cmd, _csv_attack="straight", _csv_wordlist=wordlist)
 		return
 	
 	def straight_with_rules_manual(self, wordlist, rules_manual=":"):
@@ -93,7 +131,7 @@ class Hashcat(object):
 		rules_left = self.rules_left.format(rules_left=rules_manual)
 		attack = "{attack_mode} \"{wordlist}\" {rules_left}".format(attack_mode=attack_mode, wordlist=wordlist, rules_left=rules_left)
 		cmd = self.getStaticPart() + attack
-		self.execute(cmd)
+		self.execute(cmd, _csv_attack="straight_with_rules_manual", _csv_wordlist=wordlist, _csv_rule=rules_manual)
 		return
 
 	def straight_with_rules_file(self, wordlist, rules_file):
@@ -102,9 +140,18 @@ class Hashcat(object):
 		"""
 		attack_mode = self.attack_mode.format(mode=0)
 		rules_file = self.rules_file.format(rules_file=rules_file)
+
+
+		#AÑADIDO (ELIMINAR)
+		#------------------------------------------------------------------------------------------------------------------------------------------------
+		final_pot_name="potfile_WORDLIST_RULES_"+os.path.basename(wordlist)+"_"+os.path.basename(rules_file)+".pot"
+		self.pot_file = "--potfile-path " + os.path.join(self.benchmark_location, final_pot_name)		
+		#------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 		attack = "{attack_mode} \"{wordlist}\" {rules_file}".format(attack_mode=attack_mode, wordlist=wordlist, rules_file=rules_file)
 		cmd = self.getStaticPart() + attack
-		self.execute(cmd)
+		self.execute(cmd, _csv_attack="straight_with_rules_file", _csv_wordlist=wordlist, _csv_rule=os.path.basename(rules_file))
 		return
 
 	def straight_with_combined_rules_files(self, wordlist, rules_file1, rules_file2):
@@ -114,9 +161,17 @@ class Hashcat(object):
 		attack_mode = self.attack_mode.format(mode=0)
 		rules_file1 = self.rules_file.format(rules_file=rules_file1)
 		rules_file2 = self.rules_file.format(rules_file=rules_file2)
+		
+		#AÑADIDO (ELIMINAR)
+		#------------------------------------------------------------------------------------------------------------------------------------------------
+		final_pot_name="potfile_WORDLIST_COMBINED_RULES_"+os.path.basename(wordlist)+"_"+os.path.basename(rules_file1)+"_"+os.path.basename(rules_file2)+".pot"
+		self.pot_file = "--potfile-path " + os.path.join(self.benchmark_location, final_pot_name)
+		#------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 		attack = "{attack_mode} \"{wordlist}\" {rules_file1} {rules_file2}".format(attack_mode=attack_mode, wordlist=wordlist, rules_file1=rules_file1, rules_file2=rules_file2)
 		cmd = self.getStaticPart() + attack
-		self.execute(cmd)
+		self.execute(cmd, _csv_attack="straight_with_combined_rules_files", _csv_wordlist=wordlist, _csv_rule=f"{os.path.basename(rules_file1)}+{os.path.basename(rules_file2)}")
 		return
 
 	def combinator(self, wordlist1, wordlist2, rules_left=":", rules_right=":"):
@@ -126,9 +181,17 @@ class Hashcat(object):
 		attack_mode = self.attack_mode.format(mode=1)
 		rules_left = self.rules_left.format(rules_left=rules_left)
 		rules_right = self.rules_right.format(rules_right=rules_right)
+
+		#AÑADIDO (ELIMINAR)
+		#------------------------------------------------------------------------------------------------------------------------------------------------
+		final_pot_name="potfile_WORDLIST_COMBINATOR_"+os.path.basename(wordlist1)+"_"+os.path.basename(wordlist2)+"_"+os.path.basename(rules_left)+"_"+os.path.basename(rules_right)+".pot"
+		self.pot_file = "--potfile-path " + os.path.join(self.benchmark_location, final_pot_name)
+		#------------------------------------------------------------------------------------------------------------------------------------------------
+
+		
 		attack = "{attack_mode} \"{wordlist1}\" \"{wordlist2}\" {rules_left} {rules_right}".format(attack_mode=attack_mode, wordlist1=wordlist1, wordlist2=wordlist2, rules_left=rules_left, rules_right=rules_right)
 		cmd = self.getStaticPart() + attack
-		self.execute(cmd)
+		self.execute(cmd, _csv_attack="combinator", _csv_wordlist=f"{os.path.basename(wordlist1)}+{os.path.basename(wordlist2)}")
 		return
 
 	def brute_force_automatic(self, increment_min=False, increment_max=False):
@@ -144,7 +207,7 @@ class Hashcat(object):
 			increment_max = self.increment_max.format(max=increment_max)
 			attack = "{attack_mode} {increment} {increment_min} {increment_max}".format(attack_mode=attack_mode, increment=increment, increment_min=increment_min, increment_max=increment_max)
 		cmd = self.getStaticPart() + attack
-		self.execute(cmd)
+		self.execute(cmd, _csv_attack="brute_force_automatic")
 		return
 
 	def brute_force(self, masks, increment_min=False, increment_max=False):
@@ -160,7 +223,7 @@ class Hashcat(object):
 			increment_max = self.increment_max.format(max=increment_max)
 			attack = "{attack_mode} {masks} {increment} {increment_min} {increment_max}".format(attack_mode=attack_mode, masks=masks, increment=increment, increment_min=increment_min, increment_max=increment_max)
 		cmd = self.getStaticPart() + attack
-		self.execute(cmd)
+		self.execute(cmd, _csv_attack="brute_force", _csv_rule=str(masks))
 		return
 
 	def hybrid_right(self, wordlist, masks, rules_left=":", increment_min=False, increment_max=False):
@@ -177,7 +240,7 @@ class Hashcat(object):
 			increment_max = self.increment_max.format(max=increment_max)
 			attack = "{attack_mode} \"{wordlist}\" {masks} {rules_left} {increment} {increment_min} {increment_max}".format(attack_mode=attack_mode, wordlist=wordlist, rules_left=rules_left, masks=masks, increment=increment, increment_min=increment_min, increment_max=increment_max)
 		cmd = self.getStaticPart() + attack
-		self.execute(cmd)
+		self.execute(cmd, _csv_attack="hybrid_right", _csv_wordlist=wordlist, _csv_rule=str(masks))
 		return
 
 	def hybrid_left(self, wordlist, masks, rules_right=":", increment_min=False, increment_max=False):
@@ -194,7 +257,7 @@ class Hashcat(object):
 			increment_max = self.increment_max.format(max=increment_max)
 			attack = "{attack_mode} {masks} \"{wordlist}\" {rules_right} {increment} {increment_min} {increment_max}".format(attack_mode=attack_mode, wordlist=wordlist, rules_right=rules_right, masks=masks, increment=increment, increment_min=increment_min, increment_max=increment_max)
 		cmd = self.getStaticPart() + attack
-		self.execute(cmd)
+		self.execute(cmd, _csv_attack="hybrid_left", _csv_wordlist=wordlist, _csv_rule=str(masks))
 		return
 
 	def one_hash_one_word(self, one_hash, word):
@@ -205,7 +268,7 @@ class Hashcat(object):
 		static = f"{self.executable} {self.hash_type} \"{one_hash}\" {self.pot_file} {self.out_file} {self.out_file_format_pwd} {self.resource_options} {self.extra_params} {self.quiet} "
 		attack = "{attack_mode} {masks}".format(attack_mode=attack_mode, masks=word)
 		cmd = static + attack
-		self.execute(cmd)
+		self.execute(cmd, _csv_attack="one_hash_one_word")
 		return
 
 	def save_cracked(self):
@@ -240,3 +303,47 @@ class Hashcat(object):
 		if self.verbose: Color.showVerbose("Recovered passwords from potfile dumped to wordlist" + wordlist_file)
 
 		return
+
+	def _init_csv(self):
+		"""Create CSV with headers if it doesn't exist yet."""
+		if not os.path.exists(self.BENCHMARK_CSV):
+			with open(self.BENCHMARK_CSV, "w", newline="", encoding="utf-8") as f:
+				csv.DictWriter(f, fieldnames=CSV_HEADERS).writeheader()
+
+	def _count_hashes(self,hash_file, pot_file):
+		"""
+		Count total hashes in hash_file and cracked ones in pot_file by counting lines.
+		"""
+		try:
+			with open(hash_file, "r", encoding="cp1252", errors="ignore") as f:
+				total = sum(1 for line in f if line.strip())
+		except Exception:
+			total = 0
+		try:
+			with open(pot_file, "r", encoding="cp1252", errors="ignore") as f:
+				cracked = sum(1 for line in f if line.strip())
+		except Exception:
+			cracked = 0
+		percentage = round((cracked / total * 100), 2) if total > 0 else 0.0
+		return total, cracked, percentage
+
+	def _log_to_csv(self,attack_name, wordlist=None, rule=None, duration_seconds=0.0, hash_file=None, pot_file=None):
+		"""Append one benchmark result row to the CSV log."""
+		self._init_csv()
+		h, rem = divmod(int(duration_seconds), 3600)
+		m, s   = divmod(rem, 60)
+		total, cracked, percentage = self._count_hashes(hash_file, pot_file) if (hash_file and pot_file) else (0, 0, 0.0)
+		row = {
+			"fecha":                datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+			"tipo_ataque":          attack_name,
+			"diccionario":          Path(wordlist).name if wordlist else "-",
+			"regla":                rule if rule else "-",
+			"duracion_segundos":    round(duration_seconds, 3),
+			"duracion_formato":     f"{h:02d}:{m:02d}:{s:02d}",
+			"hashes_totales":       total,
+			"hashes_crackeados":    cracked,
+			"porcentaje_crackeado": f"{percentage}%",
+		}
+		with open(self.BENCHMARK_CSV, "a", newline="", encoding="utf-8") as f:
+			csv.DictWriter(f, fieldnames=CSV_HEADERS).writerow(row)
+	# ------------------------------------------------------------------ #
